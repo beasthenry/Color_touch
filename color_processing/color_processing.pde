@@ -14,13 +14,17 @@ void setup(){
  port = new Serial(this, "/dev/cu.usbmodem14201", 115200); //remember to replace COM20 with the appropriate serial port on your computer
  port.bufferUntil(lf);
  file1 = new SoundFile(this, "files/a.wav");
+ file2 = new SoundFile(this, "files/b.wav");
+ file3 = new SoundFile(this, "files/c.wav");
+ file4 = new SoundFile(this, "files/d.wav");
+ file5 = new SoundFile(this, "files/e.wav");
+ file6 = new SoundFile(this, "files/f.wav");
+ file7 = new SoundFile(this, "files/g.wav");
 }
  
 void draw(){
   background(r, g, b);
-  if(g<=50){
-   file1.play(); 
-  }
+  
 }
 
 void serialEvent(Serial port){
@@ -52,6 +56,27 @@ void serialEvent(Serial port){
     print(",");
     print(b);
     println();
+    if((r>=102) && (g<=204) && (b<=204)){
+   file1.play(); 
+  }
+  if((r>=104) && (g>=104) && (b<=204)){
+   file2.play(); 
+  }
+  if((r<=204) && (g>=102) && (b<=204)){
+   file3.play(); 
+  }
+  if((r>=102) && (g<=229) && (b<=204) && (g>=102)){
+   file4.play(); 
+  }
+  if((r<=204) && (g<=204) && (b>102)){
+   file5.play(); 
+  }
+  if((r>=102) && (g<=204) && (b>=102) && (r<=229)){
+   file6.play(); 
+  }
+  if((r>=102) && (g<=204) && (b<=229) && (b>=51)){
+   file7.play(); 
+  }
     }
   }
 }
